@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity } from "react-native";
 
-const CalculateButton = ({ item, onPressButton }) => {
+const CalculateButton = ({ item, onPressButton, color }) => {
 	return (
 		<TouchableOpacity
 			style={{

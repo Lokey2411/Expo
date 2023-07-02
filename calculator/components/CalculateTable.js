@@ -4,11 +4,12 @@ import {
 	TouchableOpacity,
 	StyleSheet,
 	FlatList,
+	TextInput,
 } from "react-native";
 import CalculateButton from "./Calculate";
 
 const line = [
-	[1, 2, 3, "+", "-"],
+	[1, 2, 3, "-", "+"],
 	[4, 5, 6, "*", "/"],
 	[7, 8, 9, 0, "="],
 ];
@@ -16,17 +17,13 @@ const line = [
 const Line = ({ item, onPressButton }) => {
 	return (
 		<View style={styles.line}>
-			<FlatList
-				style={styles.line}
-				data={item}
-				renderItem={({ item }) => (
-					<CalculateButton
-						item={item}
-						onPressButton={onPressButton}
-					/>
-				)}
-				keyExtractor={(item) => item}
-			/>
+			{item.map((value, index) => (
+				<CalculateButton
+					item={value}
+					onPressButton={onPressButton}
+					key={index}
+				/>
+			))}
 		</View>
 	);
 };

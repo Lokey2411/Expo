@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
+import {
+	StyleSheet,
+	Text,
+	View,
+	TouchableOpacity,
+	Alert,
+	TextInput,
+} from "react-native";
 import CalculateTable from "./components/CalculateTable";
 import { useState } from "react";
 
@@ -11,7 +18,7 @@ export default function App() {
 		setInputNumber("0");
 	};
 	const isNumber = (str) => {
-		return Number(str) === str;
+		return Number(str) == str;
 	};
 	const handleInputNumber = (number) => {
 		if (isNumber(number))
@@ -50,12 +57,17 @@ export default function App() {
 			}
 		}
 	};
-
+	const [input, setInput] = useState("");
 	return (
 		<View style={{ margin: "auto" }}>
 			<View style={styles.result}>
 				<Text id="result">{inputNumber}</Text>
 			</View>
+			<TextInput
+				placeholder=""
+				value=""
+				onChangeText={setInput}
+			/>
 			<CalculateTable onPressButton={handleInputNumber} />
 			<TouchableOpacity
 				onPress={() => {
