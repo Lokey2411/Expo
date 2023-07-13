@@ -9,10 +9,10 @@ export default function App() {
 	const maxSize = 12;
 	const minSize = 2;
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, {}]}>
 			<View
 				style={{
-					backgroundColor: "#fff",
+					backgroundColor: "#00000",
 					width: "90%",
 					height: 100,
 					borderWidth: 1,
@@ -64,7 +64,7 @@ export default function App() {
 					style={{
 						width: 50,
 						height: 50,
-						borderRadius: 50,
+						borderRadius: 25,
 						borderWidth: 1,
 						backgroundColor: color === "red" ? "red" : "#fff",
 					}}

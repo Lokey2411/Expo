@@ -1,5 +1,12 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+	Image,
+	ScrollView,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from "react-native";
+import React, { useState } from "react";
 import { EvilIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -17,48 +24,54 @@ interface PropsData {
 }
 
 const Item = (props: PropsData) => {
+	const [isPressed, setIsPressed] = useState(false);
 	return (
-		<ScrollView
-			style={[styles.container, { backgroundColor: props.background }]}>
-			<View style={[styles.line1, styles.row]}>
-				<View style={{ width: imgSize + 10, height: imgSize + 10 }}>
-					<Image
-						source={props.avt}
-						style={styles.img}
-					/>
-				</View>
-				<View style={{ width: 290 }}>
-					<Text style={{ marginLeft: 5 }}>{props.name}</Text>
-					<View style={[styles.row, {}]}>
-						<EvilIcons
-							name="location"
-							size={24}
-							color="black"
+		<TouchableOpacity onPress={() => setIsPressed(!isPressed)}>
+			<ScrollView
+				style={[
+					styles.container,
+					{ backgroundColor: isPressed ? "#FF1493" : "#f2f2f2" },
+				]}>
+				<View style={[styles.line1, styles.row]}>
+					<View style={{ width: imgSize + 10, height: imgSize + 10 }}>
+						<Image
+							source={props.avt}
+							style={styles.img}
 						/>
-						<Text>{props.address}</Text>
 					</View>
-					<Text style={{ marginLeft: 5 }}>{props.exp}</Text>
+					<View style={{ width: 290 }}>
+						<Text style={{ marginLeft: 5 }}>{props.name}</Text>
+						<View style={[styles.row, {}]}>
+							<EvilIcons
+								name="location"
+								size={24}
+								color="black"
+							/>
+							<Text>{props.address}</Text>
+						</View>
+						<Text style={{ marginLeft: 5 }}>{props.exp}</Text>
+					</View>
+					<View>
+						<View style={[styles.rating, styles.row]}>
+							<Text style={{ marginHorizontal: 4 }}>
+								{`${props.rate ? props.rate : 0}`}/5
+							</Text>
+							<FontAwesome
+								name="star"
+								size={20}
+								color="orange"
+							/>
+						</View>
+						<Text style={{ color: "#FF1493", marginTop: 10 }}>
+							{props.price}
+						</Text>
+					</View>
 				</View>
 				<View>
-					<View style={[styles.rating, styles.row]}>
-						<Text style={{ marginHorizontal: 4 }}>
-							{`${props.rate ? props.rate : 0}`}/5
-						</Text>
-						<FontAwesome
-							name="star"
-							size={20}
-							color="orange"
-						/>
-					</View>
-					<Text style={{ color: "#FF1493", marginTop: 10 }}>
-						{props.background === "#f2f2f2" && props.price}
-					</Text>
+					<Text>{props.desc}</Text>
 				</View>
-			</View>
-			<View>
-				<Text>{props.desc}</Text>
-			</View>
-		</ScrollView>
+			</ScrollView>
+		</TouchableOpacity>
 	);
 };
 

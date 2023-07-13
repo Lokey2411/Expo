@@ -14,7 +14,8 @@ export default Detail;
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#blue",
+		width: "100%",
+		backgroundColor: "blue",
 		alignItems: "center",
 		justifyContent: "center",
 	},
