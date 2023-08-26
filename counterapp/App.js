@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // num++ => num = num + 1
-// setNum(num+1) => num = value
+// let size = 10;
+// size = size + 1;
+// const [size, setSize] = useState(10);
+// muốn thay đổi giá trị: setSize(15);
 export default function App() {
 	const [size, setSize] = useState(10);
 	const [align, setAlign] = useState("center");

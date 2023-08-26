@@ -66,8 +66,8 @@ export default function App() {
 	return (
 		<SafeAreaView style={{ backgroundColor: "#000", height: "100%" }}>
 			<StatusBar style="dark" />
-			{/* <FavouriteContextProvider> */}
-			<Provider store={store}>
+			<FavouriteContextProvider>
+				{/* <Provider store={store}> */}
 				<NavigationContainer>
 					<Stack.Navigator
 						screenOptions={{
@@ -100,8 +100,8 @@ export default function App() {
 						/>
 					</Stack.Navigator>
 				</NavigationContainer>
-				{/* </FavouriteContextProvider> */}
-			</Provider>
+			</FavouriteContextProvider>
+			{/* </Provider> */}
 		</SafeAreaView>
 	);
 }

@@ -9,6 +9,14 @@ import {
 import CalculateTable from "./components/CalculateTable";
 import { useState } from "react";
 
+const Component = () => {
+	return (
+		<View>
+			<Text>Hello</Text>
+		</View>
+	);
+};
+
 export default function App() {
 	const [inputNumber, setInputNumber] = useState("0");
 	const [firstNumber, setFirstNumber] = useState(0);
@@ -20,6 +28,7 @@ export default function App() {
 	const isNumber = (str) => {
 		return Number(str) == str;
 	};
+	//[1]=>handle(1)
 	const handleInputNumber = (number) => {
 		if (isNumber(number))
 			setInputNumber(
@@ -29,9 +38,9 @@ export default function App() {
 			);
 		else {
 			if (number !== "=") {
-				setFirstNumber(Number(inputNumber));
-				setMathCalc(number);
-				clear();
+				setFirstNumber(Number(inputNumber)); // chờ nha
+				setMathCalc(number); //chờ thầy bấm nốt
+				setInputNumber("0");
 			} else {
 				switch (mathCalc) {
 					case "+":
