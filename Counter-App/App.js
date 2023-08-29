@@ -6,10 +6,8 @@ const kichCo = 50;
 
 export default function App() {
 	const [number, setNumber] = useState(0);
-  function buttonPressed() {
-    
-  }
-	const isOdd = number % 2 === 0 ? "even " : "odd";
+	function buttonPressed() {}
+	const isOdd = number % 2 ? "odd " : "even";
 	// let odd = null;
 	// if (odd % 2 === 0) {
 	// 	odd = "even";
